@@ -28,6 +28,8 @@ gem 'bundler', '1.17.1'
 gem 'bcrypt'
 
 gem 'foreman', '~> 0.82.0'
+gem 'rest-client'
+gem 'pry'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
