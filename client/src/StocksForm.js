@@ -17,7 +17,9 @@ class EventsForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    //fetch from stocksController
+    fetch(`/api/v1/stocks/${this.state.ticker}/${this.state.qty}`, {accept: 'application/json',})
+    .then((response) => {console.log(response)})
+    // .then((data) => {this.setState({ fruits: data }) });
   }
 
   render(){
