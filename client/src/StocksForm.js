@@ -17,9 +17,10 @@ class EventsForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    fetch(`/api/v1/stocks/${this.state.ticker}/${this.state.qty}`, {accept: 'application/json',})
-    .then((response) => {console.log(response)})
-    // .then((data) => {this.setState({ fruits: data }) });
+    fetch(`https://cloud.iexapis.com/stable/stock/${this.state.ticker}/quote?token=pk_b1a1b59742544768ba38683c68c5337b`)
+      .then((res) => { return res.json() })
+      .then((data) => { console.log(data); })
+      .catch((err) => { console.log(err) })
   }
 
   render(){
