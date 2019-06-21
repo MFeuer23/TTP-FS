@@ -5,5 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
   has_many :trades
   has_many :stocks, through: :trades
-  has_secure_password
+
 end

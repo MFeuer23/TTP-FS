@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import HelloWorld from './HelloWorld'
 
 class EventsForm extends Component {
   constructor() {
@@ -32,6 +33,7 @@ class EventsForm extends Component {
 
           <input type="submit" value="submit"/>
         </form>
+        <HelloWorld greeting="hello"/>
 
       </div>
     )
