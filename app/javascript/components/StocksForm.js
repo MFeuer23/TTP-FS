@@ -6,7 +6,8 @@ class EventsForm extends Component {
     super();
     this.state = {
       ticker: "",
-      qty: ""
+      qty: "",
+      stockData: {}
     }
   }
 
@@ -20,8 +21,25 @@ class EventsForm extends Component {
     event.preventDefault();
     fetch(`https://cloud.iexapis.com/stable/stock/${this.state.ticker}/quote?token=pk_b1a1b59742544768ba38683c68c5337b`)
       .then((res) => { return res.json() })
-      .then((data) => { console.log(data); })
+      .then((data) => { return this.setState(
+        {...this.state, stockData:
+          {current_price: data.latestPrice,
+          open_price: data.open}
+        }
+      ); }
+    )
       .catch((err) => { console.log(err) })
+  }
+
+  componentDidUpdate = (previousProps, previousState) => {
+    if (previousState.stockData !== this.state.stockData) {
+      fetch('/stocks',
+        {method: "POST",
+        headers: {"Content-Type": "application/json", "Accept": "application/json"},
+        body: JSON.stringify(this.state.stockData)
+      })
+    }
+    return null;
   }
 
   render(){
