@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
      root to: "home#index"
 
-  resources :stocks, only: [:create]
+  resources :stocks, only: [:index, :create]
 
 
 
