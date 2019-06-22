@@ -23,7 +23,7 @@ class StocksContainer extends Component {
       <div>
         Portfolio
         {this.state.stocks ? this.state.stocks.map((stock) =>
-          <Stock key={stock.id} ticker={stock.ticker_symbol}/>) : "buy some stocks" }
+          <Stock key={stock.id} ticker={stock.ticker_symbol} qty={stock.qty}/>) : "buy some stocks" }
       </div>
     )
   }
