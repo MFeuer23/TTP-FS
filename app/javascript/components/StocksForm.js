@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import HelloWorld from './HelloWorld'
 
 class EventsForm extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
+      current_user: props.current_user,
       ticker: "",
       qty: "",
       stockData: {}
@@ -36,7 +37,7 @@ class EventsForm extends Component {
       fetch('/stocks',
         {method: "POST",
         headers: {"Content-Type": "application/json", "Accept": "application/json"},
-        body: JSON.stringify(this.state.stockData)
+        body: JSON.stringify(this.state)
       })
     }
     return null;

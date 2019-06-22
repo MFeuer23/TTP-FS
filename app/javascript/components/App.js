@@ -3,11 +3,11 @@ import './App.css';
 import StocksForm from './StocksForm';
 import NavBar from './NavBar'
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <header className="App-header">
-        <StocksForm />
+        <StocksForm current_user={props.current_user}/>
       </header>
 
     </div>
