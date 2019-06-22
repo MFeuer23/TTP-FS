@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import HelloWorld from './HelloWorld'
 
-class EventsForm extends Component {
+class StocksForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -29,14 +29,17 @@ class EventsForm extends Component {
         }
       ); }
     )
-      .catch((err) => { console.log(err) })
+      .catch((err) => { console.log(err, "HELLO!") })
   }
 
   componentDidUpdate = (previousProps, previousState) => {
     if (previousState.stockData !== this.state.stockData) {
       fetch('/stocks',
         {method: "POST",
-        headers: {"Content-Type": "application/json", "Accept": "application/json"},
+        headers: {"Content-Type": "application/json",
+        "Accept": "application/json",
+        'X-CSRF-Token': this.props.token
+        },
         body: JSON.stringify(this.state)
       })
     }
@@ -60,4 +63,4 @@ class EventsForm extends Component {
 
 }
 
-export default EventsForm;
+export default StocksForm;

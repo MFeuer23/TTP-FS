@@ -13,20 +13,13 @@ class App extends Component {
     }
   }
 
-  componentDidMount = () => {
-    fetch('/trades', {"Accept": "application/json"})
-      .then((res) => { return res.json() })
-      .then((data) => { this.setState({trades: data}) })
-      .catch((err) => { console.log(err) })
-  }
 
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <StocksForm current_user={this.props.current_user}/>
-          <StocksContainer trades={this.state.trades}/>
-          <TradesContainer trades={this.state.trades}/>
+          <StocksContainer current_user={this.props.current_user} token={this.props.token}/>
+          <TradesContainer />
         </header>
 
       </div>

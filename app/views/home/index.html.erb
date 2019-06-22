@@ -1,6 +1,6 @@
-
+ <% csrf_token = form_authenticity_token %>
   Logged in as <strong><%= current_user.email %></strong>.
   <br>
   <%= button_to('Logout', destroy_user_session_path, :method => :delete, :class => 'well')%>
 
-<%= react_component("App", {current_user: current_user}) %>
+<%= react_component("App", {current_user: current_user, token: csrf_token}) %>

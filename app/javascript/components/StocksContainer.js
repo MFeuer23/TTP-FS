@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Stock from './Stock'
+import StocksForm from './StocksForm'
 
 class StocksContainer extends Component {
   constructor() {
@@ -21,6 +22,7 @@ class StocksContainer extends Component {
   render(){
     return (
       <div>
+        <StocksForm current_user={this.props.current_user} token={this.props.token}/>
         Portfolio
         {this.state.stocks ? this.state.stocks.map((stock) =>
           <Stock key={stock.id} ticker={stock.ticker_symbol} qty={stock.qty}/>) : "buy some stocks" }
