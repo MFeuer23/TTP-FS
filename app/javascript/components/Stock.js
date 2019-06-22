@@ -35,7 +35,7 @@ class Stock extends Component {
   render(){
     return (
       <div className={this.stockColor()}>
-        {this.props.ticker.toUpperCase()} - {this.props.qty} Shares - ${this.state.qty * this.state.current_price}
+        {this.props.ticker.toUpperCase()} - {this.props.qty} Shares - ${(this.props.qty * this.state.current_price).toFixed(2)}
       </div>
     )
   }
