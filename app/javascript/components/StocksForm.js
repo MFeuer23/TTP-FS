@@ -29,7 +29,7 @@ class StocksForm extends Component {
           open_price: data.open}
         }
       ); }
-    )
+    ).then((x) => this.props.cashUpdate(this.state.stockData.current_price))
       .catch((err) => { this.setState({...this.state, errors: "Ticker Symbol Not Found"}) })
 
   }
@@ -44,6 +44,7 @@ class StocksForm extends Component {
         },
         body: JSON.stringify(this.state)
       }).then((x) => this.props.fetchStocks())
+      .catch((err) => { console.log(err) })
     }
   }
 

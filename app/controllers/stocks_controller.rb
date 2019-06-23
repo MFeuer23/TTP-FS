@@ -17,7 +17,12 @@ class StocksController < ApplicationController
 
     @stock = Stock.find_or_create_by(ticker_symbol: params[:ticker])
 
-    @trade = Trade.create(user_id: @user.id, stock_id: @stock.id, transaction_price: params[:stockData][:current_price], qty: params[:qty])
-
+    if @user.cash >= params[:stockData][:current_price]
+      @trade = Trade.create(user_id: @user.id, stock_id: @stock.id, transaction_price: params[:stockData][:current_price], qty: params[:qty])
+      @user.cash -= params[:stockData][:current_price]
+    else
+      @error = "you don't have enough money in your account to buy this stock"
+      render json: @error
+    end
   end
 end
