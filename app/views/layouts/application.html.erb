@@ -8,6 +8,12 @@
   <%= javascript_pack_tag 'application' %>
 </head>
 <body>
+
+<ul class="nav navbar-nav">
+  <li><%=link_to "Portfolio", root_path %></li>
+  <li><%=link_to "Transactions", transactions_path %></li>
+</ul>
+
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 <%= yield %>
