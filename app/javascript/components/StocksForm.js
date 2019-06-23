@@ -30,6 +30,7 @@ class StocksForm extends Component {
       ); }
     )
       .catch((err) => { console.log(err, "HELLO!") })
+
   }
 
   componentDidUpdate = (previousProps, previousState) => {

@@ -17,6 +17,13 @@ class StocksContainer extends Component {
       .catch((err) => { console.log(err) })
   }
 
+  toArray = (stocks) => {
+    let array = []
+    for (let stock in stocks) {
+      array.push([stock, stocks[stock]])
+    }
+    return array;
+  }
 
 
   render(){
@@ -24,8 +31,8 @@ class StocksContainer extends Component {
       <div>
         <StocksForm current_user={this.props.current_user} token={this.props.token}/>
         Portfolio
-        {this.state.stocks ? this.state.stocks.map((stock) =>
-          <Stock key={stock.id} ticker={stock.ticker_symbol} qty={stock.qty}/>) : "buy some stocks" }
+        {this.state.stocks ? this.toArray(this.state.stocks).map((stock, i) =>
+          <Stock key={i} ticker={stock[0]} qty={stock[1]}/>) : "buy some stocks" }
       </div>
     )
   }
