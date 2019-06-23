@@ -7,7 +7,6 @@ class StocksContainer extends Component {
     super(props);
     this.state = {
       stocks: [],
-      update: "",
       cash: 0,
       errors: ""
     }
@@ -53,9 +52,10 @@ class StocksContainer extends Component {
     return array;
   }
 
-  cashUpdate = (price) => {
-    if (this.state.cash >= price) {
-      this.setState({...this.state, cash: this.state.cash - price})
+  cashUpdate = (data) => {
+    let price = data.stockData.current_price * parseInt(data.qty)
+    if (this.state.cash >= (price)) {
+      this.setState({...this.state, cash: (this.state.cash - price) })
       this.updateUserCash(price);
     } else {
       this.setState({...this.state, errors: "not enough money"})
