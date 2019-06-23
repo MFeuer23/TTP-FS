@@ -21,6 +21,7 @@ class StocksForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    event.target.reset();
     fetch(`https://cloud.iexapis.com/stable/stock/${this.state.ticker}/quote?token=pk_b1a1b59742544768ba38683c68c5337b`)
       .then((res) => { return res.json() })
       .then((data) => { return this.setState(
@@ -29,8 +30,9 @@ class StocksForm extends Component {
           open_price: data.open}
         }
       ); }
-    ).then((x) => this.props.cashUpdate(this.state.stockData.current_price))
-      .catch((err) => { this.setState({...this.state, errors: "Ticker Symbol Not Found"}) })
+    ).then(() => this.props.cashUpdate(this.state))
+    .then(() => this.setState({...this.state, ticker: "", qty: ""}))
+      .catch(() => { this.setState({...this.state, errors: "Ticker Symbol Not Found"}) })
 
   }
 
@@ -43,7 +45,7 @@ class StocksForm extends Component {
         'X-CSRF-Token': this.props.token
         },
         body: JSON.stringify(this.state)
-      }).then((x) => this.props.fetchStocks())
+      }).then(() => this.props.fetchStocks())
       .catch((err) => { console.log(err) })
     }
   }
