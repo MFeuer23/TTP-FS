@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Trade from './Trade'
 
 class TradesContainer extends Component {
   constructor() {
@@ -19,7 +20,11 @@ class TradesContainer extends Component {
 
   render(){
     return (
-        "what"
+      <div>
+      Transactions
+        {this.state.trades.map((trade, i) =>
+          <Trade key={i} ticker={trade.ticker} qty={trade.qty} price={trade.transaction_price}/>)}
+      </div>
     )
   }
 
