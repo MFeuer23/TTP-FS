@@ -23,7 +23,7 @@ class TradesContainer extends Component {
       <div>
       Transactions
         {this.state.trades.map((trade, i) =>
-          <Trade key={i} ticker={trade.ticker} qty={trade.qty} price={trade.transaction_price}/>)}
+          <Trade key={i} ticker={trade.ticker} qty={trade.qty} price={trade.transaction_price * trade.qty}/>)}
       </div>
     )
   }
