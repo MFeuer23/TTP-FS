@@ -9,10 +9,12 @@
 </head>
 <body>
 
-<ul class="nav navbar-nav">
-  <li><%=link_to "Portfolio", root_path %></li>
-  <li><%=link_to "Transactions", transactions_path %></li>
-</ul>
+<div class="nav">
+  <p>
+    <%=link_to "Portfolio", root_path %> |
+    <%=link_to "Transactions", transactions_path %>
+  </p>
+</div>
 
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
