@@ -6,16 +6,23 @@ class StocksContainer extends Component {
   constructor() {
     super();
     this.state = {
-      stocks: []
+      stocks: [],
+      update: ""
     }
   }
 
   componentDidMount = () => {
+    this.fetchStocks()
+  }
+
+  fetchStocks = () => {
     fetch('/stocks', {"Accept": "application/json"})
       .then((res) => { return res.json() })
       .then((data) => { this.setState({stocks: data}) })
       .catch((err) => { console.log(err) })
   }
+
+
 
   toArray = (stocks) => {
     let array = []
@@ -29,7 +36,7 @@ class StocksContainer extends Component {
   render(){
     return (
       <div>
-        <StocksForm current_user={this.props.current_user} token={this.props.token}/>
+        <StocksForm current_user={this.props.current_user} token={this.props.token} fetchStocks={this.fetchStocks}/>
         Portfolio
         {this.toArray(this.state.stocks).map((stock, i) =>
           <Stock key={i} ticker={stock[0]} qty={stock[1]}/>)}

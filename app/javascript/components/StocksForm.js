@@ -43,9 +43,8 @@ class StocksForm extends Component {
         'X-CSRF-Token': this.props.token
         },
         body: JSON.stringify(this.state)
-      })
+      }).then((x) => this.props.fetchStocks())
     }
-    return null;
   }
 
   render(){
