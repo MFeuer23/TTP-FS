@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
   def show
-    render json: current_user.cash
+    @cash = '%.2f' % current_user.cash
+    render json: @cash
   end
 
   def update

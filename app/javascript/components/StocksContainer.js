@@ -33,7 +33,6 @@ class StocksContainer extends Component {
   }
 
   updateUserCash = () => {
-    debugger;
     fetch(`/users/${this.props.current_user.id}`,
       {method: "PUT",
       headers: {"Content-Type": "application/json",
@@ -55,7 +54,6 @@ class StocksContainer extends Component {
   }
 
   cashUpdate = (price) => {
-    debugger;
     if (this.state.cash >= price) {
       this.setState({...this.state, cash: this.state.cash - price})
       this.updateUserCash(price);
