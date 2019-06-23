@@ -67,7 +67,7 @@ class StocksContainer extends Component {
     return (
       <div>
         {this.state.errors}
-        cash: ${this.state.cash}
+        cash: ${this.state.cash.toFixed(2)}
         <StocksForm current_user={this.props.current_user} token={this.props.token} fetchStocks={this.fetchStocks} cashUpdate={(e) => {this.cashUpdate(e)}}/>
         Portfolio
         {this.toArray(this.state.stocks).map((stock, i) =>
