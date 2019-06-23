@@ -8,7 +8,8 @@ class StocksForm extends Component {
       current_user: props.current_user,
       ticker: "",
       qty: "",
-      stockData: {}
+      stockData: {},
+      errors: ""
     }
   }
 
@@ -29,7 +30,7 @@ class StocksForm extends Component {
         }
       ); }
     )
-      .catch((err) => { console.log(err, "HELLO!") })
+      .catch((err) => { this.setState({...this.state, errors: "Ticker Symbol Not Found"}) })
 
   }
 
@@ -50,9 +51,10 @@ class StocksForm extends Component {
   render(){
     return (
       <div>
+        {this.state.errors}
         <form onSubmit={event => this.handleSubmit(event)}>
-          <input type="text" name="ticker" placeholder="Ticker" value={this.state.ticker} onChange={event => this.handleChange(event)} />
-          <input type="text" name="qty" placeholder="Qty" value={this.state.qty} onChange={event => this.handleChange(event)} />
+          <input type="text" name="ticker" placeholder="Ticker" value={this.state.ticker} onChange={event => this.handleChange(event)} required />
+          <input type="number" min="1" step="1" name="qty" placeholder="Qty" value={this.state.qty} onChange={event => this.handleChange(event)} required />
 
           <input type="submit" value="submit"/>
         </form>

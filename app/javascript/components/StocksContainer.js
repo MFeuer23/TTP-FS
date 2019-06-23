@@ -31,8 +31,8 @@ class StocksContainer extends Component {
       <div>
         <StocksForm current_user={this.props.current_user} token={this.props.token}/>
         Portfolio
-        {this.state.stocks ? this.toArray(this.state.stocks).map((stock, i) =>
-          <Stock key={i} ticker={stock[0]} qty={stock[1]}/>) : "buy some stocks" }
+        {this.toArray(this.state.stocks).map((stock, i) =>
+          <Stock key={i} ticker={stock[0]} qty={stock[1]}/>)}
       </div>
     )
   }
