@@ -11,9 +11,9 @@
 
   <% if current_user %>
     <div class="nav">
-      Logged in as <strong><%= current_user.email %></strong>.
+      Logged in as <strong><%= current_user.name %></strong>.
       <br>
-      <%= button_to('Logout', destroy_user_session_path, :method => :delete, :class => 'well')%>
+      <%= button_to('Logout', destroy_user_session_path, :method => :delete, :class => 'logout')%>
       <p>
         <%=link_to "Portfolio", root_path %> |
         <%=link_to "Transactions", transactions_path %>
