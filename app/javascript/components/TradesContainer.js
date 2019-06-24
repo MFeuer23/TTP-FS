@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Trade from './Trade'
+import './App.css';
 
 class TradesContainer extends Component {
   constructor() {

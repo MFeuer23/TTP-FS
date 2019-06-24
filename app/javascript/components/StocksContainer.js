@@ -66,13 +66,22 @@ class StocksContainer extends Component {
   render(){
     return (
       <div>
-        {this.state.errors}
-        cash: ${this.state.cash.toFixed(2)}
-        <StocksForm current_user={this.props.current_user} token={this.props.token} fetchStocks={this.fetchStocks} cashUpdate={(e) => {this.cashUpdate(e)}}/>
-        Portfolio
-        {this.toArray(this.state.stocks).map((stock, i) =>
-          <Stock key={i} ticker={stock[0]} qty={stock[1]}/>)}
-      </div>
+        <div className="error">
+          {this.state.errors}
+        </div>
+        <div className="right">
+          <div className="cash">
+            <h2>Cash: ${this.state.cash.toFixed(2)}</h2>
+          </div>
+          <StocksForm current_user={this.props.current_user} token={this.props.token} fetchStocks={this.fetchStocks} cashUpdate={(e) => {this.cashUpdate(e)}}/>
+        </div>
+        <div className="left">
+          <h2>Portfolio</h2>
+          {this.toArray(this.state.stocks).map((stock, i) =>
+            <Stock key={i} ticker={stock[0]} qty={stock[1]}/>
+          )}
+        </div>
+    </div>
     )
   }
 

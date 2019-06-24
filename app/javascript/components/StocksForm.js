@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import HelloWorld from './HelloWorld'
+
 
 class StocksForm extends Component {
   constructor(props) {
@@ -52,15 +52,18 @@ class StocksForm extends Component {
 
   render(){
     return (
-      <div>
-        {this.state.errors}
+      <div className="form">
+
         <form onSubmit={event => this.handleSubmit(event)}>
           <input type="text" name="ticker" placeholder="Ticker" value={this.state.ticker} onChange={event => this.handleChange(event)} required />
+          <br />
           <input type="number" min="1" step="1" name="qty" placeholder="Qty" value={this.state.qty} onChange={event => this.handleChange(event)} required />
-
-          <input type="submit" value="submit"/>
+          <br />
+          <input className="button" type="submit" value="submit"/>
         </form>
-        <HelloWorld greeting="hello"/>
+        <div className="error">
+          {this.state.errors}
+        </div>
 
       </div>
     )
