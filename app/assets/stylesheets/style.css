@@ -1,8 +1,24 @@
-.log-in {
+/* Log In and Sign Up */
 
+.log-in, .sign-up {
   margin: auto;
-  width: 100%;
+  border: solid black 2px;
+  width: 50%;
   text-align: center;
+  padding: 20px;
+}
+
+.actions input {
+    width: 192px;
+    margin: 5px;
+}
+
+.actions a {
+    padding-bottom: 20px;
+}
+
+.field {
+  margin: 5px;
 }
 
 /* Stock display colors based on open price vs. current_price */
@@ -31,20 +47,29 @@
 
 /* Errors */
 
-.error {
+.alert, #error_explanation {
   color: red;
+  width: 50%;
+  margin: auto;
 }
 
 .notice {
   color: blue;
+  text-align: center;
+}
+
+.error {
+  color: red;
+  padding: 10px
 }
 
 /* right and left alignment for portfolio and form */
 
 .right {
-  width: 40%;
+  width: 50%;
   height: 100%;
   float: right;
+  margin: auto;
 }
 
 .left {
@@ -65,4 +90,12 @@
 
 .form input.button {
   width: 192px;
+}
+
+/* Transaction and Stock Listing */
+
+.stock, .transaction {
+  width: 50%;
+  padding: 10px;
+  border-bottom: 2px solid black;
 }

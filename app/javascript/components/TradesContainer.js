@@ -21,7 +21,7 @@ class TradesContainer extends Component {
   render(){
     return (
       <div>
-      Transactions
+      <h2>Transactions</h2>
         {this.state.trades.map((trade, i) =>
           <Trade key={i} ticker={trade.ticker} qty={trade.qty} price={trade.transaction_price * trade.qty}/>)}
       </div>
