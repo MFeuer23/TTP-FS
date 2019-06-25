@@ -8,7 +8,8 @@ class StocksContainer extends Component {
     this.state = {
       stocks: [],
       cash: 0,
-      errors: ""
+      errors: "",
+      portfolio_value: 0
     }
   }
 
@@ -62,6 +63,10 @@ class StocksContainer extends Component {
     }
   }
 
+  portfolioValue = (total) => {
+    this.setState({portfolio_value: this.state.portfolio_value += total})
+  }
+
 
   render(){
     return (
@@ -73,12 +78,12 @@ class StocksContainer extends Component {
           <div className="cash">
             <h2>Cash: ${this.state.cash.toFixed(2)}</h2>
           </div>
-          <StocksForm current_user={this.props.current_user} token={this.props.token} fetchStocks={this.fetchStocks} cashUpdate={(e) => {this.cashUpdate(e)}}/>
+          <StocksForm current_user={this.props.current_user} token={this.props.token} fetchStocks={this.fetchStocks} cashUpdate={() => {this.cashUpdate()}}/>
         </div>
         <div className="left">
-          <h2>Portfolio</h2>
+          <h2>Portfolio (${this.state.portfolio_value.toFixed(2)})</h2>
           {this.toArray(this.state.stocks).map((stock, i) =>
-            <Stock key={i} ticker={stock[0]} qty={stock[1]}/>
+            <Stock key={i} ticker={stock[0]} qty={stock[1]} portfolioValue={this.portfolioValue} />
           )}
         </div>
     </div>

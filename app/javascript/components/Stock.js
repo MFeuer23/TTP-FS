@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 
 class Stock extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       open_price: 0,
-      current_price: 0
+      current_price: 0,
+      qty: this.props.qty
     }
   }
 
@@ -18,7 +19,7 @@ class Stock extends Component {
           open_price: data.open}
 
       ); }
-    )
+    ).then(() => this.props.portfolioValue(this.state.current_price * this.state.qty))
       .catch((err) => { console.log(err) })
   }
 
@@ -32,7 +33,9 @@ class Stock extends Component {
     }
   }
 
+
   render(){
+
     return (
       <div className={this.stockColor()}>
         {this.props.ticker.toUpperCase()} - {this.props.qty} Shares - ${(this.props.qty * this.state.current_price).toFixed(2)}
