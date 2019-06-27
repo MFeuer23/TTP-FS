@@ -95,7 +95,14 @@
 /* Transaction and Stock Listing */
 
 .stock, .transaction {
-  width: 50%;
   padding: 10px;
   border-bottom: 2px solid black;
+}
+
+.stock {
+  width: 45%
+}
+
+.transaction {
+  width: 30%
 }
