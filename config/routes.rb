@@ -6,8 +6,8 @@ Rails.application.routes.draw do
 
      root to: "home#index"
 
-  resources :stocks, only: [:index, :create]
-  resources :trades, only: [:index]
+  resources :stocks, only: [:index]
+  resources :trades, only: [:index, :create]
 
   get '/transactions' => "home#transactions"
 
