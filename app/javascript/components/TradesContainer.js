@@ -16,6 +16,13 @@ class TradesContainer extends Component {
       .catch((err) => { console.log(err) })
   }
 
+  pluralize = (qty) => {
+    if (qty === 1) {
+      return "Share"
+    } else {
+      return "Shares"
+    }
+  }
 
 
   render(){
@@ -23,7 +30,7 @@ class TradesContainer extends Component {
       <div>
       <h2>Transactions</h2>
         {this.state.trades.map((trade, i) =>
-          <Trade key={i} ticker={trade.ticker} qty={trade.qty} price={trade.transaction_price * trade.qty}/>)}
+          <Trade key={i} ticker={trade.ticker} qty={trade.qty} price={trade.transaction_price * trade.qty} pluralize={this.pluralize}/>)}
       </div>
     )
   }
