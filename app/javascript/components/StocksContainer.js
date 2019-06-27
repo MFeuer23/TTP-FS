@@ -77,7 +77,7 @@ class StocksContainer extends Component {
           <div className="cash">
             <h2>Cash: ${this.state.cash.toFixed(2)}</h2>
           </div>
-          <StocksForm current_user={this.props.current_user} token={this.props.token} fetchStocks={this.fetchStocks} cashUpdate={this.cashUpdate}/>
+          <StocksForm current_user={this.props.current_user} token={this.props.token} fetchStocks={this.fetchStocks} cashUpdate={this.cashUpdate} portfolioValue={this.portfolioValue}/>
         </div>
         <div className="left">
           <h2>Portfolio (${this.state.portfolio_value.toFixed(2)})</h2>
