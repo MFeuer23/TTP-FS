@@ -21,7 +21,6 @@ class StocksForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    event.target.reset();
     fetch(`https://cloud.iexapis.com/stable/stock/${this.state.ticker}/quote?token=pk_b1a1b59742544768ba38683c68c5337b`)
       .then((res) => { return res.json() })
       .then((data) => { return this.setState(
