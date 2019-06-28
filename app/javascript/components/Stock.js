@@ -19,7 +19,7 @@ class Stock extends Component {
           open_price: data.open}
 
       ); }
-    ).then(() => this.props.portfolioValue(this.state.current_price * this.state.qty), console.log(this.state))
+    ).then(() => this.props.portfolioValue(this.state.current_price * this.state.qty))
       .catch((err) => { console.log(err) })
   }
 
@@ -39,13 +39,20 @@ class Stock extends Component {
     }
   }
 
+  pluralize = (qty) => {
+    if (qty === 1) {
+      return "Share"
+    } else {
+      return "Shares"
+    }
+  }
 
   render(){
 
     return (
       <div className="stock">
         <div className={this.stockColor()}>
-          {this.props.ticker.toUpperCase()} - {this.props.qty} Shares - ${(this.props.qty * this.state.current_price).toFixed(2)}
+          {this.props.ticker.toUpperCase()} - {this.props.qty} {this.pluralize(this.props.qty)} - ${(this.props.qty * this.state.current_price).toFixed(2)}
         </div>
       </div>
     )
