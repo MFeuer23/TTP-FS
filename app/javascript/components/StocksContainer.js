@@ -3,8 +3,8 @@ import Stock from './Stock'
 import StocksForm from './StocksForm'
 
 class StocksContainer extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       stocks: [],
       cash: 0,

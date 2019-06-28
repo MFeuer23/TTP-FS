@@ -2,10 +2,9 @@ import React, { Component } from 'react'
 
 
 class StocksForm extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      current_user: props.current_user,
       ticker: "",
       qty: "",
       stockData: {},
