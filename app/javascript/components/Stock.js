@@ -19,8 +19,14 @@ class Stock extends Component {
           open_price: data.open}
 
       ); }
-    ).then(() => this.props.portfolioValue(this.state.current_price * this.state.qty))
+    ).then(() => this.props.portfolioValue(this.state.current_price * this.state.qty), console.log(this.state))
       .catch((err) => { console.log(err) })
+  }
+
+  componentDidUpdate = (previousProps, previousState) => {
+    if (this.props.qty !== previousProps.qty) {
+      this.props.portfolioValue(this.state.current_price * (this.props.qty - previousProps.qty))
+    }
   }
 
   stockColor = () => {

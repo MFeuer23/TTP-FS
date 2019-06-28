@@ -21,7 +21,7 @@ class StocksContainer extends Component {
   fetchStocks = () => {
     fetch('/stocks', {"Accept": "application/json"})
       .then((res) => { return res.json() })
-      .then((data) => { this.setState({...this.state, stocks: data}) })
+      .then((data) => { this.setState({...this.state, stocks: data}), console.log(this.state.stocks) })
       .catch((err) => { console.log(err) })
   }
 
