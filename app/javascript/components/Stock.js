@@ -40,11 +40,7 @@ class Stock extends Component {
   }
 
   pluralize = (qty) => {
-    if (qty === 1) {
-      return "Share"
-    } else {
-      return "Shares"
-    }
+    return qty === 1 ? "Stock" : "Stocks"
   }
 
   render(){
