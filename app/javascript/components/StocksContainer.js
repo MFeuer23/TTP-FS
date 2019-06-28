@@ -44,15 +44,6 @@ class StocksContainer extends Component {
     .catch((err) => { console.log(err) })
   }
 
-
-  toArray = (stocks) => {
-    let array = []
-    for (let stock in stocks) {
-      array.push([stock, stocks[stock]])
-    }
-    return array;
-  }
-
   cashUpdate = (price) => {
     if (this.state.cash >= (price)) {
       this.setState({...this.state, cash: (this.state.cash - price) })
@@ -82,7 +73,7 @@ class StocksContainer extends Component {
         </div>
         <div className="left">
           <h2>Portfolio (${this.state.portfolio_value.toFixed(2)})</h2>
-          {this.toArray(this.state.stocks).map((stock, i) =>
+          {this.state.stocks.map((stock, i) =>
             <Stock key={i} ticker={stock[0]} qty={stock[1]} portfolioValue={this.portfolioValue} />
           )}
         </div>
