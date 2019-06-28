@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 
 class Stock extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       open_price: 0,
       current_price: 0,
