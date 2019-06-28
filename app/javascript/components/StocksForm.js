@@ -57,7 +57,7 @@ class StocksForm extends Component {
           <br />
           <input type="number" min="1" step="1" name="qty" placeholder="Qty" value={this.state.qty} onChange={event => this.handleChange(event)} required />
           <br />
-          <input className="button" type="submit" value="submit"/>
+          <input className="button" type="submit" value="Buy"/>
         </form>
         <div className="error">
           {this.state.errors}
