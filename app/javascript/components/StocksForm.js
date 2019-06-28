@@ -31,7 +31,6 @@ class StocksForm extends Component {
         }
       ); }
     ).then(() => this.props.cashUpdate(this.state.qty * this.state.stockData.current_price))
-    .then(() => this.props.portfolioValue(this.state.qty * this.state.stockData.current_price))
     .then(() => this.setState({...this.state, ticker: "", qty: ""}))
       .catch((err) => { this.setState({...this.state, errors: "Ticker Symbol Not Found"}), console.log(err) })
 

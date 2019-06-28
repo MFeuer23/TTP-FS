@@ -57,6 +57,7 @@ class StocksContainer extends Component {
     if (this.state.cash >= (price)) {
       this.setState({...this.state, cash: (this.state.cash - price) })
       this.updateUserCash(price);
+
     } else {
       this.setState({...this.state, errors: "not enough money"})
     }
@@ -77,7 +78,7 @@ class StocksContainer extends Component {
           <div className="cash">
             <h2>Cash: ${this.state.cash.toFixed(2)}</h2>
           </div>
-          <StocksForm current_user={this.props.current_user} token={this.props.token} fetchStocks={this.fetchStocks} cashUpdate={this.cashUpdate} portfolioValue={this.portfolioValue}/>
+          <StocksForm current_user={this.props.current_user} token={this.props.token} fetchStocks={this.fetchStocks} cashUpdate={this.cashUpdate} />
         </div>
         <div className="left">
           <h2>Portfolio (${this.state.portfolio_value.toFixed(2)})</h2>

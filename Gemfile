@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+zsource 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
@@ -14,8 +14,6 @@ gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 
-gem 'foreman', '~> 0.82.0'
-gem 'rest-client'
 gem 'pry'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
