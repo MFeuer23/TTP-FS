@@ -1,28 +1,17 @@
-== README
+# Stock Trading App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Usage
 
-Things you may want to cover:
+To use this app, just fork and clone, run `cd TTP-FS`, run `bundle install`, run `rake db:migrate`, run `yarn install` and then run `rails s`. Then navigate to `localhost:3000` in your browser of choice.
 
-* Ruby version
+## Summary
 
-* System dependencies
+This is an app that will allow users to create a login, buy stocks, and view transactions. Open and current stock value prices reflect the data available through the IEX API.
 
-* Configuration
+## Contributing
 
-* Database creation
+Bug reports and pull requests are welcome on GitHub at https://github.com/MFeuer23/nyc-indie-show-list. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct.
 
-* Database initialization
+## License
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+This app is available as open source under the terms of the [BSD-3-Clause License](https://opensource.org/licenses/BSD-3-Clause).
